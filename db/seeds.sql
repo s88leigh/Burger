@@ -1,5 +1,13 @@
 --In this file, write insert queries to populate the burgers 
+use burgers_db;
 --table with at least three entries.
+insert into burgers
+    (burger_name)
+values
+    ("Cheeseburger"),
+    ("Fishburger"),
+    ("Avocadoburger"),
+    ("Tacoburger");
 --Run the schema.sql and seeds.sql files into the mysql server from the command line
 --Now you're going to run these SQL files.
 
