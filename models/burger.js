@@ -4,7 +4,7 @@ const orm = require("../config/orm");
 //create the code that will call the ORM functions using burger specific input for the ORM.
 
 
-module.exports = {
+ const dbBurgers= {
     findAll: function (callback) {
         orm.findAll("burgers", callback);
     },
@@ -17,3 +17,5 @@ module.exports = {
         orm.findByCondition("burgers", condition, callback);
     },
 }
+
+module.exports = dbBurgers
