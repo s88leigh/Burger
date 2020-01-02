@@ -15,34 +15,39 @@
 
     {{{body}}}
     <div class="card text-center">
-    <div class="card" class="col-1">
-        <div class="card-body">
+    
+        <div class="left-display">
+        
             {{!space for uneaten burgers}}
             <ul>
                 {{#each burger_name}}
                     {{#unless devoured}}
-                    
+                    <li>
+                        {{burger_name}}
+                        <button type="button" class="btn btn-success">devour</button>
+                    </li>
                     {{/unless}}
                 {{/each}}
             </ul>
-        </div>
+        
     </div>
     
-    <div class="card" class="col-4">
-        <div class="card-body">
+    <div  class="right-display">
+        
             {{!space for devoured burgers}}
             <ul>
                 {{#each burger_name}}
                     {{#if devoured}}
                     <li>
-    
+                        {{burger_name}}
+                        <button type="button" class="btn btn-success">devour</button>
                     </li>
                     {{/if}}
                 {{/each}}
             </ul>
-        </div>
+        
     </div>
-    
+
 
     
 
