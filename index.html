@@ -14,8 +14,37 @@
 <body>
 
     {{{body}}}
-
     <div class="card text-center">
+    <div class="card" class="col-1">
+        <div class="card-body">
+            {{!space for uneaten burgers}}
+            <ul>
+                {{#each burger_name}}
+                    {{#unless devoured}}
+                    
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card" class="col-4">
+        <div class="card-body">
+            {{!space for devoured burgers}}
+            <ul>
+                {{#each burger_name}}
+                    {{#if devoured}}
+                    <li>
+    
+                    </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    
+
+    
 
         <div class="card-body">
             <img class="center-block" id="burger-pic" src="public\assets\img\burger.png" alt="burger image">

@@ -5,8 +5,9 @@ const orm = require("../config/orm");
 
 
  const dbBurgers= {
-    findAll: function (callback) {
+    getAll: function (callback) {
         orm.findAll("burgers", callback);
+    
     },
     findByName: function (name, callback) {
         const condition = "burger_name = '" + name + "'"
@@ -16,6 +17,17 @@ const orm = require("../config/orm");
         const condition = "id = " + id;
         orm.findByCondition("burgers", condition, callback);
     },
-}
+
+    addBurger: function (burger_name, callback) {
+        orm.insertBurger("burgers", ["burger_name"], [burger_name], callback);
+
+    },
+
+    updateBurger: function(id, callback) {
+        orm.update("burgers", id, "devoured", true, callback);
+    }
+};
+
+
 
 module.exports = dbBurgers
