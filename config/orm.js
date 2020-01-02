@@ -14,9 +14,9 @@ orm = {
         }
     
     },
-    insertOne: async function (table, condition, callback) {
+    insertOne: async function (table, callback) {
         try {
-            var str = "SELECT * FROM ?? WHERE " + condition;
+            var str = "INSERT INTO BURGERS (burger_name)";
             var result = await connection.query(str, [table])
             callback(result)
         } catch (error) {
