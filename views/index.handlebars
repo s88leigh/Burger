@@ -1,25 +1,5 @@
---Setup the index.handlebars to have the template that Handlebars can render onto.
---Create a button in index.handlebars that will submit the user input into the database.
-
-
-<div class="card" class="col-1">
-    <div class="card-body">
-        {{!space for uneaten burgers}}
-        <ul>
-            {{#each burger_name}}
-                {{#unless devoured}}
-                <li>
-                    {{burger_name}}
-                    <button type="button" class="btn btn-success" data-id="{{id}}">Devour</button>
-                </li>
-                {{/unless}}
-            {{/each}}
-        </ul>
-    </div>
-</div>
-
-<div class="card" class="col-4">
-    <div class="card-body">
+<div class="col-4">
+    
         {{!space for devoured burgers}}
         <ul>
             {{#each burger_name}}
@@ -31,20 +11,50 @@
                 {{/if}}
             {{/each}}
         </ul>
-    </div>
+    
 </div>
 
 
 {{!html layout  of burger image, textarea, and submit button}}
 
  <div class="card text-center">
+     <div class="col-1">
+    
+        {{!space for uneaten burgers}}
+        <ul>
+            {{#each burger_name}}
+                {{#unless devoured}}
+                <li>
+                    {{burger_name}}
+                    <button type="button" class="btn btn-success" data-id="{{id}}">Devour</button>
+                </li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+   
+</div>
+<div class="col-4">
+    
+        {{!space for devoured burgers}}
+        <ul>
+            {{#each burger_name}}
+                {{#if devoured}}
+                <li>
+                    {{burger_name}}
+                    <button  type="button" class="delete" class="btn btn-danger" data-id="{{this.id}}">devoured!</button>
+               </li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    
+</div>
 
         <div class="card-body">
-            <img class="center-block" id="burger-pic" src="public\assets\img\burger.png" alt="burger image">
+            <img class="center-block" id="burger-pic" src="assets/img/burger.png" alt="burger image">
 
             <form>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1"><strong>Eat-da-Burger!</strong></label>
+                    <h2><label for="exampleFormControlTextarea1"><strong>Eat-da-Burger!</strong></label></h2>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     <div class = submit-button>
                     <input class="btn btn-primary" type="submit" value="Submit">
