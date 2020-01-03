@@ -9,7 +9,7 @@ const orm = require('../config/orm')
 router.get("/", function (req, res) {
     burger.getAll(function (data) {
         console.log(data)
-        res.render("index", data);
+        res.render("index.handlebars", {burger_name:data});
     });
 });
 
@@ -38,8 +38,8 @@ router.put("/api/burgers/:id", function(req, res) {
     var burger_id = req.params.id;
     console.log("burger_id", burger)
 
-    dbBurgers.devourBurgers.update({
-        sleepy: req.body.sleepy
+    devoured.update({
+        devour: req.body.devour
       }, condition, function(result) {
         if (result.changedRows == 0) {
           // If no rows were changed, then the ID must not exist, so 404

@@ -4,7 +4,7 @@ const connection = require('./connection');
 //In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
 
 orm = {
-    selectAll: async function (table, callback) {
+    findAll: async function (table, callback) {
         try {
             var str = "SELECT * FROM ??";
             var result = await connection.query(str, [table])
@@ -14,17 +14,21 @@ orm = {
         }
     
     },
-    insertOne: async function (table, callback) {
+    insertOne: async function (burger_name, callback) {
         try {
-            var str = "INSERT INTO BURGERS (burger_name)";
-            var result = await connection.query(str, [table])
+            var str = "INSERT INTO BURGERS (burger_name)  values('??');";
+            var result = await connection.query(str, [burger_name])
             callback(result)
         } catch (error) {
             console.log(error)
         }
     }, 
-    updateOne: 
-
+    // updateOne: async function(objColVals,  cb) {
+    //     orm.update("burgers", objColVals, function(res) {
+    //       cb(res);
+    //     });
+    //   },
+    
 };
 
 module.exports = orm
