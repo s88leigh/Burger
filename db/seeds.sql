@@ -2,12 +2,12 @@
 use burgers_db;
 --table with at least three entries.
 insert into burgers
-    (burger_name)
+    (burger_name, devoured)
 values
-    ("Cheeseburger"),
-    ("Fishburger"),
-    ("Avocadoburger"),
-    ("Tacoburger");
+    ("Cheeseburger", false),
+    ("Fishburger", false),
+    ("Avocadoburger",false ),
+    ("Tacoburger", false);
 --Run the schema.sql and seeds.sql files into the mysql server from the command line
 --Now you're going to run these SQL files.
 

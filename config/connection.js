@@ -11,7 +11,12 @@ const connection = mysql.createConnection({
   port: 3306
 });
 
-connection.connect();
+connection.connect(function(err) {
+  if (err) {
+    console.log("error");
+    return;
+  }
+});
 
 // Setting up connection.query to use promises instead of callbacks
 // This allows us to use the async/await syntax

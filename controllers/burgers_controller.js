@@ -27,8 +27,10 @@ router.get("/", function (req, res) {
 
 //add a new burger
 router.post("/api/burgers", function (req, res) {
-    dbBurgers.addBurger(req.body.new_burger, function (data) {
+    console.log(req.body)
+    burger.addBurger(req.body.new_burger, function (data) {
         console.log(data)
+      
         res.json({ id: result.insertId });
     });
 });
