@@ -13,21 +13,21 @@ router.get("/", function (req, res) {
     });
 });
 
-router.get("/name/:name", function (req, res) {
-    burger.getByName(req.params.name, function (data) {
-        console.log(data)
-    });
-});
+// router.get("/name/:name", function (req, res) {
+//     burger.getByName(req.params.name, function (data) {
+//         console.log(data)
+//     });
+// });
 
-router.get("/id/:id", function (req, res) {
-    burger.getById(req.params.id, function (data) {
-        console.log(data)
-    });
-});
+// router.get("/id/:id", function (req, res) {
+//     burger.getById(req.params.id, function (data) {
+//         console.log(data)
+//     });
+// });
 
 //add a new burger
 router.post("/api/burgers", function (req, res) {
-    burgers.create(req.params.id, function (data) {
+    dbBurgers.addBurger(req.body.new_burger, function (data) {
         console.log(data)
         res.json({ id: result.insertId });
     });
@@ -35,12 +35,10 @@ router.post("/api/burgers", function (req, res) {
 
 //change devour to true after having been eaten
 router.put("/api/burgers/:id", function(req, res) {
-    var burger_id = req.params.id;
-    console.log("burger_id", burger)
+    var id = req.params.id;
+    console.log("id", id)
 
-    devoured.update({
-        devour: req.body.devour
-      }, condition, function(result) {
+    burger.update(id, function(result) {
         if (result.changedRows == 0) {
           // If no rows were changed, then the ID must not exist, so 404
           return res.status(404).end();

@@ -14,7 +14,7 @@
 
 img {
     margin-top: 50px;
-    width: 400px;
+    width: 350px;
 }
 
 li {
@@ -26,12 +26,12 @@ li {
     list-style: none;
     }
 
-.col-1 {
+.uneated {
     position: absolute;
     top: 50px;
 } 
 
-.col_4 {
+.devoured {
     position: absolute;
     top: 50px;
 }

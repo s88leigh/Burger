@@ -14,7 +14,7 @@ orm = {
         }
     
     },
-    insertOne: async function (burger_name, callback) {
+    insertBurger: async function (burger_name, callback) {
         try {
             var str = "INSERT INTO BURGERS (burger_name)  values('??');";
             var result = await connection.query(str, [burger_name])
@@ -23,11 +23,11 @@ orm = {
             console.log(error)
         }
     }, 
-    // updateOne: async function(objColVals,  cb) {
-    //     orm.update("burgers", objColVals, function(res) {
-    //       cb(res);
-    //     });
-    //   },
+    update: async function(id,  cb) {
+        orm.update("burgers", id, "devoured", devoured, function(res) {
+          cb(res);
+        });
+      },
     
 };
 
