@@ -21,13 +21,14 @@ const orm = require("../config/orm");
     
     //adds a new burger to the database under the burger_name column
     addBurger: function (burger_name, callback) {
+        console.log("new burger name is:" + newBurger +".");
         orm.insertBurger("burgers", ["burger_name"], [burger_name], callback);
 
     },
 
     //changes the burger to devoured
     updateBurger: function(id, callback) {
-        orm.update("burgers", id, "devoured", true, callback);
+        orm.updateBurger("burgers", id, "devoured", true, callback);
     }
 };
 

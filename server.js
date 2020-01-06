@@ -4,14 +4,9 @@ const express = require("express");
 // Create an instance of the express app.
 const app = express();
 
-const bodyParser = require("body-parser");
-
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 3000;
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());

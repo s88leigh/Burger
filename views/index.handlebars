@@ -9,10 +9,12 @@
         <ul>
             {{#each burger_name}}
                 {{#unless devoured}}
+            
                 <li>
-                    {{burger_name}}
+                   <span> {{id}}.{{burger_name}}</span> 
                     <button type="button" class="btn change-eaten btn-success" data-id="{{id}}">Devour</button>
                 </li>
+
                 {{/unless}}
             {{/each}}
         </ul>
@@ -26,7 +28,7 @@
                 {{#if devoured}}
                 <li>
                     {{burger_name}}
-                     {{> burgers/burger devour=true}}
+                     {{!-- {{> burgers/burger devour=true}} --}}
                     <button  type="button" class="delete" class="btn btn-danger" data-id="{{this.id}}">devoured!</button>
                </li>
                 {{/if}}
@@ -41,7 +43,7 @@
             <form class="create-new-burger-form">
                 <div class="form-group">
                     <h2><label for="new-burger"><strong>Eat-da-Burger!</strong></label></h2>
-                    <input class="form-control" id="new-burger" name="new_burger" rows="3"></input>
+                    <input type="text" class="form-control" id="burger" name="new_burger" rows="3"></input>
                     <div class = submit-button>
                     <button class="btn btn-primary" type="submit" id ="add-burger" value="Submit">Add Burger</button>
                     </div>
