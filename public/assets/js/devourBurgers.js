@@ -1,9 +1,8 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
-  $(".change-eaten btn-success").on("click", function (event) {
+  $(".change-eaten").on("click", function (event) {
     event.preventDefault();
     const id = $(this).data("id");
-
 
     const devouredState = {
       devoured: 1

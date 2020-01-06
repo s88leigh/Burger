@@ -20,16 +20,16 @@ const orm = require("../config/orm");
     },
     
     //adds a new burger to the database under the burger_name column
-    addBurger: function (values, callback) {
-        console.log("new burger name is:" + newBurger +".");
-        orm.insertBurger("burgers", ["burger_name"], values, callback);
-
-    },
-
-    //changes the burger to devoured
-    updateBurger: function(id, callback) {
+    addBurger: function (name, callback) {
+        console.log("new burger name is:" + name +".");
+        orm.create("burgers", ["burger_name"], [name], callback);
         
-        orm.updateBurger("burgers", id, callback);
+    },
+    
+    //changes the burger to devoured
+    updateBurger: function(id, data, callback) {
+        const condition = "id = " + id;        
+        orm.update("burgers", condition, data, callback);
     }
 };
 

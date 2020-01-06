@@ -1,58 +1,60 @@
-
-
 {{!html layout  of burger image, textarea, and submit button}}
 
- <div class="card text-center">
-     <div class="uneated">
-    
+    <div class="card-body">
+        <div class="card text-center">
+    <div class="uneated">
+
         {{!space for uneaten burgers}}
         <ul>
             {{#each burger_name}}
-                {{#unless devoured}}
-            
-                <li>
-                   <span> {{id}}.{{burger_name}}</span> 
-                    <button type="button" class="btn change-eaten btn-success" data-id="{{id}}" data-devoured="{{devoured}}">Devour</button>
+            {{#unless devoured}}
 
-                </li>
+            <li>
+                <span> {{id}}.{{burger_name}}</span>
+                <button type="button" class="btn change-eaten btn-success" data-id="{{id}}"
+                    data-devoured="{{devoured}}">Devour</button>
 
-                {{/unless}}
+            </li>
+
+            {{/unless}}
             {{/each}}
         </ul>
-   
-</div>
-<div class="devoured">
-    
+
+    </div>
+    <div class="devoured">
+
         {{!space for devoured burgers}}
         <ul>
             {{#each burger_name}}
-                {{#if devoured}}
-                <li>
-                    {{burger_name}}
-                     {{!-- {{> burgers/burger devoured=0}} --}}
-                    <button  type="button" class="delete" class="btn btn-danger" data-id="{{this.id}}">devoured!</button>
-                    
-               </li>
-                {{/if}}
+            {{#if devoured}}
+            <li>
+                {{burger_name}}
+        
+                <button type="button" class="delete" class="btn btn-danger" data-id="{{this.id}}">devoured!</button>
+
+            </li>
+            {{/if}}
             {{/each}}
         </ul>
-    
-</div>
-
-        <div class="card-body">
-            <img class="center-block" id="burger-pic" src="assets/img/burger.png" alt="burger image">
-
-            <form class="create-new-burger-form">
-                <div class="form-group">
-                    <h2><label for="new-burger"><strong>Eat-da-Burger!</strong></label></h2>
-                    <input type="text" class="form-control" id="burger" name="new_burger" rows="3"></input>
-                    <div class = submit-button>
-                    <button class="btn btn-primary" type="submit" id ="add-burger" value="Submit">Add Burger</button>
-                    </div>
-                </div>
-            </form>
-            <p class="card-text">Enter a burger you want to eat and click the Add Burger button.</p>
-
-        </div>
 
     </div>
+
+ 
+    <div class="devoured">
+
+        <img class="center-block" id="burger-pic" src="assets/img/burger.png" alt="burger image">
+
+        <form class="create-new-burger-form">
+            <div class="form-group">
+                <h2><label for="new-burger"><strong>Eat-da-Burger!</strong></label></h2>
+                <input type="text" class="form-control" id="burger" name="new_burger" rows="3"></input>
+                <div class=submit-button>
+                    <button class="btn btn-primary" type="submit" id="add-burger" value="Submit">Add Burger</button>
+                </div>
+            </div>
+        </form>
+        <p class="card-text">Enter a burger you want to eat and click the Add Burger button.</p>
+
+    </div>
+
+</div>
